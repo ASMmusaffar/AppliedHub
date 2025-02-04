@@ -1,0 +1,536 @@
+/* -----------------------------------------------Main Structure */
+/* ------------------------------------------------------------- */
+:root{
+    --primaryColor:#128a07;
+    --black:#191c23;
+    --white:#fff;
+    --bg:#f0f0f0;
+    --overlay:#191c23cc;
+}
+.darkTheme{
+    --black:#fff;
+    --white:#191c23;
+    --bg:#0e0f13;
+    --overlay:#474545a8;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    color: var(--black);
+    background: var(--bg);
+    transition: background .7s ease;
+}
+.container {
+    display: flex;
+    flex-grow: 1;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.hide{
+    display: none;
+    transition: all .5s ease;
+}
+.flexing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    color: var(--white);
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    height: 95vh;
+    margin: 2.5vh;
+    border-radius: 12px;
+    transition: all .5s ease;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.overlay{
+    z-index: 102;
+    /* filter: blur(1px); */
+    backdrop-filter: blur(1.4px);
+    background: var(--overlay);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+hr{
+    border: 1px solid var(--bg);
+}
+.btn-grp{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.btn-grp *{
+    padding: 7px 17px;
+    border-radius: 6px;
+    border: 1px solid var(--bg);
+    cursor: pointer;
+    font-weight: 600;
+}
+.addNewBatchCon, .selectThemeCon{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 103;
+}
+i{
+    transform: translateY(2px);
+}
+.notificationCon{
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 103;
+}
+.notification{
+    padding: 2px 30px;
+    background-color: var(--bg);
+    color: var(--black);
+    border-radius: 15px;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.514);
+    
+}
+.notification i{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    background-color: #d82626;
+    border-radius: 50%;
+    border: 1px solid;
+    cursor: pointer;
+}
+form label span{
+    font-size:13px;
+    color: #d82626;
+    display: block;
+    animation: blink 1s infinite;
+    font-size: large;
+}
+@keyframes blink{
+    0%{
+        opacity: 100%;
+    }
+    70%{
+        opacity: 100%;
+    }
+    80%{
+        opacity: 50%;
+    }
+}
+
+/* --------------------------------------------loginCon */
+.loginCon{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--bg);
+}
+.loginCon form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+    background: var(--white);
+    border-radius: 20px;
+}
+.loginCon form input{
+    padding: 10px 25px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid;
+}
+.loginCon form button{
+    width: 100%;
+    padding: 8px 0;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------SideBar DEsign */
+.sidebar .sidebarLogoName{
+    font-weight: 900;
+    text-align: center;
+    transform: translateY(-10px);
+}
+.sidebar .sidebarLinks a{
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    margin: 6px 0;
+    color: var(--white);
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 17px;
+}
+.sidebar .sidebarLinks button{ 
+    color: var(--white);
+    background:transparent;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 800;
+    border: 0px solid;
+    cursor: pointer;
+}
+.sidebar .sidebarLinks button:hover{
+    background-color: var(--white);
+    color: var(--black);
+}
+.sidebar .sidebarLinks .logout:hover{
+    background-color: rgb(223, 0, 0);
+    color: #fff;
+}
+.sidebar .sidebarLinks .logout{
+    color: rgba(255, 0, 0, 0.781);
+}
+.sidebar .sidebarLinks .active, .sidebar .sidebarLinks a:hover{
+    background-color: var(--white);
+    color: var(--black);
+}
+.sidebar .sidebarLinks i{
+    font-size: larger;
+    transform: translateY(2.5px);
+}
+
+
+/* ------------------------------------------Content Design */
+.content .navbar{
+    width: 100%;
+    padding: 4px 0;
+    height: 50px;
+    border-radius: 10px;
+    margin-top:0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .5s ease;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+}
+.navbar .logoSet{
+    color: var(--white);
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.navbar .logo{
+    font-weight: 900;
+}
+.profileSet{
+    display: flex;
+    cursor:not-allowed;
+}
+.profile{
+    background-color: var(--white);
+    padding: 4px 25px 4px 4px;
+    margin-right: 5px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.profile img{
+    width: 38px;
+    border-radius: 8px;
+    padding-right: 5px;
+}
+#changeTheme,#sidebarButton{
+    width: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+
+/* -------------------------------------------------cardContainer */
+.cardContainer{
+    margin-top: 40px;
+    display: flex;
+    gap:20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cardContainer .card{
+    flex: 1 1 calc(25% - 40px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background: var(--white);
+    border-radius: 12px;
+}
+.cardContainer .card:hover{
+    transition: all .5s ease;
+    box-shadow: 2px 3px 1px #00000030;
+    transform: translate(-5px,-5px);
+}
+.cardContainer .card i{
+    font-size: 64px;
+}
+.cardContainer .card .cardDetails *{
+    margin: 0;
+}
+.cardContainer .card .cardDetails p{
+    font-size: 37px;
+}
+.cardContainer .card .cardDetails p span{
+    font-size: 17px;
+}
+
+/* --------------------------------------Table */
+.tableCon{
+    width: 100%;
+    overflow-x: auto;
+}
+table{
+    width: 100%;
+    margin-top: 50px;
+    border: 0;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 0 10px;
+}
+table tr td{
+    padding: 10px 10px;
+}
+table tr td a, table tr td button{
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--black);
+    width: 100%;
+    padding: 5px 0;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid;
+    text-align: center;
+    font-weight: 600;
+}
+table tr:nth-child(1) th{
+    padding:10px;
+}
+table tr:nth-child(2) th{
+    text-align: left;
+    font-size: large;
+    padding: 10px;
+}
+table tr:nth-child(1) button{
+    position: relative;
+    float: right;
+    padding: 8px 10px;
+    color: var(--white);
+    background-color: var(--black);
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+table tr:nth-child(1) button i{
+    font-size: larger;
+    transform: translateY(2px);
+}
+table tr:nth-child(1) span{
+    position: relative;
+    float: left;
+    font-size: larger;
+    border-bottom: 3px solid;
+}
+
+/* ---------------------------------------------selectThemeCon */
+
+.selectThemeBox{
+    padding: 10px 20px;
+    background: var(--white);
+    z-index: 103;
+    border-radius: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.selectThemeBox div{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.selectThemeBox div:nth-child(1){
+    background-color: #3b82f6;
+}
+.selectThemeBox div:nth-child(2){
+    background-color: #128a07;
+}
+.selectThemeBox div:nth-child(3){
+    background-color: #6a82f6;
+}
+.selectThemeBox div:nth-child(4){
+    background-color: #c36af6;
+}
+.selectThemeBox div:nth-child(5){
+    background-color: #e6b400;
+}
+
+/* -------------------------------------------------addNewBatch */
+.addNewBatch{
+    padding: 40px 80px;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: var(--bg);
+}
+.addNewBatch label{
+    display: block;
+    margin-top: 10px;
+    color: var(--black);
+    font-weight: 700;
+}
+.addNewBatch input, select{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--bg);
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+/* --------------------------------------------ProfileContainer */
+.profileContainer{
+    width: 100%;
+    margin-top: 50px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 10px 0;
+}
+.searchBox{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    margin-top: 50px;
+}
+.searchBox *{
+    padding: 5px;
+}
+.profileContainer form div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    margin-left: 30px;
+    align-items: center;
+}
+.profileContainer form div:not(.imageSetPreview){
+    width: 400px;
+}
+.profileContainer form div label{
+    font-size: large;
+    font-weight: 700;
+    min-width: 80px;
+    flex: 1;
+}
+.profileContainer form div *:nth-child(2){
+    padding: 6px 20px;
+    flex:1;
+    max-width: 300px;
+}
+.profileContainer form div select{
+    padding: 6px 20px;
+}
+.profileContainer form div *:nth-child(2):disabled{
+    background: #f3f1f109;
+    border: 0;
+    color: var(--black);
+    font-size: medium;
+    font-weight: 500;
+    max-width: 300px;
+
+}
+.profileContainer form section{
+    display: flex;
+    justify-content: end;
+    font-size: medium;
+    gap: 5px;
+    margin: 10px;
+}
+.profileContainer form section button{
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--black);
+    border: 1px solid;
+    cursor: pointer;
+}
+.profileContainer form section button i{
+    font-size: large;
+}
+.imageSetPreview{
+    display: flex;
+    justify-content: end;
+}
+.imageSetPreview img{
+    width: 220px;
+    border-radius: 50% 0 0 50%;
+    border: 2px solid ;
+}
+
+
+
+.profileSearchContainerSet{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.profileSearchContainerSet .searchSet{
+    display: flex;
+    gap: 20px;
+}
+.profileSearchContainerSet .searchSet *{
+    margin-top: 5px;
+}
+.profileSearchContainerSet a, .addnewbtn{
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* ----------------------------------------MobileView ------------------*/
+/* -------------------------------------------------------------------- */
+
+@media (max-width: 500px){
+ .tableCon{
+    overflow-x: auto;
+ }    
+}
